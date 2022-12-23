@@ -80,7 +80,7 @@ const App = () => {
     );
   }
   // si l'etat de terminer est stirctement egal a faux on afficher ce contenue
-  if (terminer === false) {
+  if (terminer === false || text === CONSTANTS.text_fin) {
     return (
       <Contenue
         vitesse={200}
