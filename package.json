@@ -6,7 +6,7 @@
   "scripts": {
     "start": "concurrently \"nodemon index.js\" \"cd client && npm start\"",
     "install": "(cd client/ && npm i) & npm i",
-    "clean": "(npm cache clear -f) & (cd client/ && rm -rf build/ node_modules/ package-lock.json) & (rm -rf node_modules/ package-lock.json)",
+    "clean": "npm cache clear -f && cd client/ && rm -rf build/ node_modules/ package-lock.json && cd .. && rm -rf node_modules/ package-lock.json",
     "build": "cd client/ && npm run build && cd .. && mv client/build public/"
   },
   "author": "Leonardo Da Fonseca Esteves",
