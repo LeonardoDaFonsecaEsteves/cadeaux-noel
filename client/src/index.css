@@ -1,0 +1,47 @@
+body {
+  margin: 0 !important;
+  font-family: "Bungee Inline", cursive;
+  font-size: 22px;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.AfficheTextLentement-div {
+  margin: 16px;
+  background: linear-gradient(to bottom, #d9b359 0%, #e60050 100%);
+}
+
+.content {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rotate {
+  background: url("./assets/rotate-screen.gif") no-repeat center center fixed;
+  background-size: contain;
+  width: 80vw !important;
+  height: 80vh !important;
+}
+
+.content img {
+  width: auto;
+  margin: 16px;
+  max-width: 50%;
+  max-height: 50%;
+}
+
+video {
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+.LecteurVideo:-webkit-full-screen {
+  width: 100vw !important;
+  height: 100vh !important;
+}
