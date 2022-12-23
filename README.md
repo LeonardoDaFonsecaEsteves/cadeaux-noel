@@ -16,17 +16,29 @@
 
 ```bash
     ## pour cloner
-    git clone
+    git clone https://github.com/LeonardoDaFonsecaEsteves/cadeaux-noel.git
 
-    ## pour mettre a jour
+    ## ajouter du contenue
+    git add .
+
+    ## ajouter un message
+    git commit -m "Mon message"
+
+    ## pour envoyer les modification
+    git push
+
+    ## pour metre a jour local
     git pull
 ```
 
 ## Utilisation des commandes npm
 
 ```javascript
+    // avant de commencer il faut installer
+    npm i -g nodemon concurrently
+
     // pour installer l'application
-    npm run install
+    npm i && cd client/ npm i
 
     // pour lancer l'application en mode devloppement
     npm run start

@@ -4,20 +4,21 @@ import Contenue from "./components/Contenue";
 import CONSTANTS from "./constants";
 import logo_rejouer from "./assets/replay-icon.png";
 
-const mobileOuOrdinateur = !!navigator.maxTouchPoints ? "mobile" : "ordinateur";
-const portraitOuPaysage = !navigator.maxTouchPoints
-  ? "bureau"
-  : !window.screen.orientation.angle
-  ? "portrait"
-  : "paysage";
-
+const mobileOuOrdinateur = () =>
+  !!navigator.maxTouchPoints ? "mobile" : "ordinateur";
+const portraitOuPaysage = () =>
+  !navigator.maxTouchPoints
+    ? "bureau"
+    : !window.screen.orientation.angle
+    ? "portrait"
+    : "paysage";
 const etatInitial = {
   infoTextAfficher: {
     terminer: false,
     text: CONSTANTS.text_debut,
   },
-  peripherique: mobileOuOrdinateur,
-  orientation: portraitOuPaysage,
+  peripherique: mobileOuOrdinateur(),
+  orientation: portraitOuPaysage(),
 };
 
 const App = () => {
@@ -59,10 +60,10 @@ const App = () => {
     const detectTypeDePeripherique = () => {
       changerEtat({
         ...etat,
-        peripherique: mobileOuOrdinateur,
-        orientation: portraitOuPaysage,
+        peripherique: mobileOuOrdinateur(),
+        orientation: portraitOuPaysage(),
       });
-      if (peripherique === "mobile" && portraitOuPaysage === "paysage") {
+      if (peripherique === "mobile" && portraitOuPaysage() === "paysage") {
         rechargerApplication();
       }
     };
@@ -79,13 +80,17 @@ const App = () => {
       </div>
     );
   }
-  // si l'etat de terminer est stirctement egal a faux on afficher ce contenue
-  if (terminer === false || text === CONSTANTS.text_fin) {
+  // si l'etat de terminer est stirctement egal a faux ou terminer est egal a faux on afficher ce contenue
+  if (
+    terminer === false ||
+    (text === CONSTANTS.text_fin && terminer === false)
+  ) {
     return (
       <Contenue
         vitesse={200}
         text={text}
         estTerminer={() =>
+          CONSTANTS.text_fin !== text &&
           estTerminer({
             nouveauText: CONSTANTS.text_fin,
             nouveauEtatTerminer: true,
